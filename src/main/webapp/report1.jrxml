@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idS" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     *,
+     vehiculo.`IdVehiculo` AS vehiculo_IdVehiculo,
+     vehiculo.`NombreVehiculo` AS vehiculo_NombreVehiculo,
+     vehiculo.`marca` AS vehiculo_marca,
+     vehiculo.`modelo` AS vehiculo_modelo,
+     vehiculo.`placas` AS vehiculo_placas,
+     vehiculo.`numeroSerie` AS vehiculo_numeroSerie,
+     vehiculo.`numeroMotor` AS vehiculo_numeroMotor,
+     vehiculo.`Costo` AS vehiculo_Costo,
+     Siniestro.`IdSiniestro` AS Siniestro_IdSiniestro,
+     Siniestro.`Compania` AS Siniestro_Compania,
+     Siniestro.`correoU` AS Siniestro_correoU,
+     Siniestro.`asegurado` AS Siniestro_asegurado,
+     Siniestro.`IdVehiculo` AS Siniestro_IdVehiculo,
+     Siniestro.`poliza` AS Siniestro_poliza,
+     Siniestro.`vigenciaPoliza` AS Siniestro_vigenciaPoliza,
+     Siniestro.`fechaSiniestro` AS Siniestro_fechaSiniestro,
+     Siniestro.`fechaAperturaCaso` AS Siniestro_fechaAperturaCaso,
+     Siniestro.`fechaClausuraCaso` AS Siniestro_fechaClausuraCaso,
+     Siniestro.`Informe` AS Siniestro_Informe
+FROM
+     `vehiculo` vehiculo INNER JOIN `Siniestro` Siniestro ON vehiculo.`IdVehiculo` = Siniestro.`IdVehiculo`
+WHERE
+     IdSiniestro = $P{idS}]]>
+	</queryString>
+	<field name="IdVehiculo" class="java.lang.Integer"/>
+	<field name="NombreVehiculo" class="java.lang.String"/>
+	<field name="marca" class="java.lang.String"/>
+	<field name="modelo" class="java.lang.String"/>
+	<field name="placas" class="java.lang.String"/>
+	<field name="numeroSerie" class="java.lang.String"/>
+	<field name="numeroMotor" class="java.lang.String"/>
+	<field name="Costo" class="java.lang.Integer"/>
+	<field name="IdSiniestro" class="java.lang.Integer"/>
+	<field name="Compania" class="java.lang.String"/>
+	<field name="correoU" class="java.lang.String"/>
+	<field name="asegurado" class="java.lang.String"/>
+	<field name="poliza" class="java.lang.String"/>
+	<field name="vigenciaPoliza" class="java.lang.String"/>
+	<field name="fechaSiniestro" class="java.lang.String"/>
+	<field name="fechaAperturaCaso" class="java.lang.String"/>
+	<field name="fechaClausuraCaso" class="java.lang.String"/>
+	<field name="Informe" class="java.lang.String"/>
+	<field name="vehiculo_IdVehiculo" class="java.lang.Integer"/>
+	<field name="vehiculo_NombreVehiculo" class="java.lang.String"/>
+	<field name="vehiculo_marca" class="java.lang.String"/>
+	<field name="vehiculo_modelo" class="java.lang.String"/>
+	<field name="vehiculo_placas" class="java.lang.String"/>
+	<field name="vehiculo_numeroSerie" class="java.lang.String"/>
+	<field name="vehiculo_numeroMotor" class="java.lang.String"/>
+	<field name="vehiculo_Costo" class="java.lang.Integer"/>
+	<field name="Siniestro_IdSiniestro" class="java.lang.Integer"/>
+	<field name="Siniestro_Compania" class="java.lang.String"/>
+	<field name="Siniestro_correoU" class="java.lang.String"/>
+	<field name="Siniestro_asegurado" class="java.lang.String"/>
+	<field name="Siniestro_IdVehiculo" class="java.lang.Integer"/>
+	<field name="Siniestro_poliza" class="java.lang.String"/>
+	<field name="Siniestro_vigenciaPoliza" class="java.lang.String"/>
+	<field name="Siniestro_fechaSiniestro" class="java.lang.String"/>
+	<field name="Siniestro_fechaAperturaCaso" class="java.lang.String"/>
+	<field name="Siniestro_fechaClausuraCaso" class="java.lang.String"/>
+	<field name="Siniestro_Informe" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="115" splitType="Stretch">
+			<staticText>
+				<reportElement x="344" y="0" width="121" height="38"/>
+				<textElement textAlignment="Center">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[S.Y.C]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="38" width="224" height="41"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Reporte de siniestro ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="51" height="20"/>
+				<textElement/>
+				<text><![CDATA[IdSiniestro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="2" width="86" height="20"/>
+				<textElement/>
+				<text><![CDATA[Compania]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="2" width="59" height="20"/>
+				<textElement/>
+				<text><![CDATA[IdVehiculo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="244" y="2" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[asegurado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="326" y="2" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[poliza]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="2" width="76" height="20"/>
+				<textElement/>
+				<text><![CDATA[vigenciaPoliza]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="2" width="75" height="20"/>
+				<textElement/>
+				<text><![CDATA[fechaSiniestro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="589" y="2" width="61" height="20"/>
+				<textElement/>
+				<text><![CDATA[fechaAperturaCaso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="675" y="2" width="85" height="20"/>
+				<textElement/>
+				<text><![CDATA[fechaClausuraCaso]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="160" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="23" width="51" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{IdSiniestro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="23" width="86" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Compania}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="23" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{IdVehiculo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="23" width="82" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{asegurado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="23" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{poliza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="23" width="76" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{vigenciaPoliza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="497" y="23" width="78" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fechaSiniestro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="589" y="23" width="73" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fechaAperturaCaso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="675" y="23" width="73" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fechaClausuraCaso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="15" y="88" width="787" height="72"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Informe}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="376" y="57" width="89" height="20"/>
+				<textElement/>
+				<text><![CDATA[Informe:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="323" y="0" width="142" height="29"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Datos Vehiculo]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="34" width="90" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehiculo_NombreVehiculo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="34" width="92" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehiculo_marca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="223" y="34" width="100" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehiculo_placas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="34" width="100" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehiculo_numeroSerie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="452" y="34" width="100" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehiculo_Costo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="90" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="112" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Marca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Placas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="344" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Numero de Sreie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="452" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Costo]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
